@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#490013",
+                    "on-primary-fixed-variant": "#370086",
+                    "primary": "#ba9eff",
+                    "background": "#060e20",
+                    "surface-tint": "#ba9eff",
+                    "tertiary-dim": "#40ceed",
+                    "inverse-on-surface": "#4d556b",
+                    "surface-dim": "#060e20",
+                    "on-primary-fixed": "#000000",
+                    "primary-fixed": "#ae8dff",
+                    "outline-variant": "#40485d",
+                    "on-surface-variant": "#a3aac4",
+                    "surface": "#060e20",
+                    "on-primary-container": "#2b006e",
+                    "secondary-dim": "#316bf3",
+                    "on-secondary-container": "#f8f7ff",
+                    "on-background": "#dee5ff",
+                    "secondary-container": "#0053db",
+                    "on-secondary-fixed": "#002d80",
+                    "on-tertiary-fixed": "#003640",
+                    "primary-container": "#ae8dff",
+                    "primary-fixed-dim": "#a27cff",
+                    "secondary": "#7799ff",
+                    "surface-container-lowest": "#000000",
+                    "surface-container-high": "#141f38",
+                    "on-tertiary-fixed-variant": "#005564",
+                    "secondary-fixed-dim": "#b0c2ff",
+                    "outline": "#6d758c",
+                    "surface-container-highest": "#192540",
+                    "secondary-fixed": "#c4d0ff",
+                    "on-secondary-fixed-variant": "#0047bd",
+                    "surface-variant": "#192540",
+                    "error-dim": "#d73357",
+                    "inverse-primary": "#6e3bd7",
+                    "on-primary": "#39008c",
+                    "surface-bright": "#1f2b49",
+                    "error": "#ff6e84",
+                    "on-error-container": "#ffb2b9",
+                    "tertiary-fixed-dim": "#40ceed",
+                    "on-tertiary-container": "#004b58",
+                    "on-secondary": "#001b55",
+                    "primary-dim": "#8455ef",
+                    "surface-container-low": "#091328",
+                    "tertiary-fixed": "#53ddfc",
+                    "inverse-surface": "#faf8ff",
+                    "on-tertiary": "#005464",
+                    "tertiary": "#8ce7ff",
+                    "tertiary-container": "#53ddfc",
+                    "on-surface": "#dee5ff",
+                    "error-container": "#a70138",
+                    "surface-container": "#0f1930"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #060e20;
+            color: #dee5ff;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(25, 37, 64, 0.6);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(64, 72, 93, 0.15);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased overflow-hidden">
+<!-- SideNavBar (Authority: Shared Components JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#091328] flex flex-col py-6 shadow-[20px_0_40px_rgba(0,0,0,0.4)] font-['Plus_Jakarta_Sans'] font-medium">
+<div class="px-6 mb-10">
+<div class="text-xl font-black text-[#ba9eff] uppercase tracking-widest">Campulse</div>
+<div class="text-[#dee5ff]/60 text-xs mt-1">College Event Hub</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="bg-[#ba9eff] text-[#060e20] rounded-lg mx-2 my-1 px-4 py-3 font-bold flex items-center gap-3 transition-all scale-102 hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-[#dee5ff]/60 mx-2 my-1 px-4 py-3 hover:bg-[#0f1930] rounded-lg flex items-center gap-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span>Events</span>
+</a>
+<a class="text-[#dee5ff]/60 mx-2 my-1 px-4 py-3 hover:bg-[#0f1930] rounded-lg flex items-center gap-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span>Calendar</span>
+</a>
+<a class="text-[#dee5ff]/60 mx-2 my-1 px-4 py-3 hover:bg-[#0f1930] rounded-lg flex items-center gap-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span>Organize</span>
+</a>
+<a class="text-[#dee5ff]/60 mx-2 my-1 px-4 py-3 hover:bg-[#0f1930] rounded-lg flex items-center gap-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-4 mb-6">
+<button class="w-full bg-gradient-to-r from-primary to-primary-dim text-on-primary py-3 rounded-full font-bold shadow-[0_0_20px_rgba(186,158,255,0.2)] hover:scale-[1.02] active:scale-95 transition-all">
+                Create Event
+            </button>
+</div>
+<div class="border-t border-outline-variant/10 pt-6">
+<a class="text-[#dee5ff]/60 mx-2 my-1 px-4 py-3 hover:bg-[#0f1930] rounded-lg flex items-center gap-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Help</span>
+</a>
+<a class="text-[#dee5ff]/60 mx-2 my-1 px-4 py-3 hover:bg-[#0f1930] rounded-lg flex items-center gap-3 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 h-screen overflow-y-auto no-scrollbar bg-surface text-on-surface">
+<!-- Header Section -->
+<header class="px-10 pt-12 pb-8 flex justify-between items-end">
+<div>
+<h1 class="font-headline text-5xl font-extrabold tracking-tighter text-on-surface mb-2">Organizer Hub</h1>
+<p class="text-on-surface-variant font-body">Real-time pulse of your campus activities.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right">
+<p class="text-on-surface font-bold">Tech Symposium 2024</p>
+<p class="text-primary text-sm font-medium">Lead Organizer</p>
+</div>
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a young college student organizer with a confident expression and stylish glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8DKbQ9_xoNIGE87u3dJJQmZg0nMyG1jdi1StQ6xXUz05FyyKFXVG5_NJvYObcsP9-IXIY61y0sexAi6CJV1GsprbCFEHcvFMExXMa11R0376p_iX3pggqMOjZ1sajEObpdVnBSc2Uuzqx1Nz3MXkJ4aJa7Uj6aEanEZocvopLlwtwkjK57AzeItUgCyC-niQhzvArjZHHhTp8THb3215vrnK067cpyed58BO-od2Nz_OpBQVgxw3N-eJIRK1LAqMptdGHpVaivB8"/>
+</div>
+</div>
+</header>
+<div class="px-10 pb-16 space-y-10">
+<!-- Quick Stats Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="col-span-1 md:col-span-2 glass-card rounded-xl p-8 relative overflow-hidden flex flex-col justify-between">
+<div class="relative z-10">
+<span class="text-tertiary text-xs font-label tracking-widest uppercase mb-4 block">Total Impact</span>
+<h2 class="text-6xl font-headline font-black text-on-surface">1,248</h2>
+<p class="text-on-surface-variant mt-2">Active registrations across 4 events</p>
+</div>
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="mt-6 flex gap-2">
+<span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold">+12% this week</span>
+</div>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col justify-center items-center text-center">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="pending_actions">pending_actions</span>
+</div>
+<h3 class="text-3xl font-headline font-bold text-on-surface">14</h3>
+<p class="text-on-surface-variant text-sm mt-1">Pending Approvals</p>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col justify-center items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="campaign" data-weight="fill" style="font-variation-settings: 'FILL' 1;">campaign</span>
+</div>
+<h3 class="text-3xl font-headline font-bold text-on-surface">86%</h3>
+<p class="text-on-surface-variant text-sm mt-1">Promo Reach</p>
+</div>
+</section>
+<!-- Active Events & Management Split -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+<!-- Left: Your Active Events (Editorial List) -->
+<div class="lg:col-span-2 space-y-6">
+<div class="flex justify-between items-center px-2">
+<h2 class="text-2xl font-headline font-extrabold tracking-tight">Your Active Events</h2>
+<button class="text-primary hover:underline text-sm font-bold">View History</button>
+</div>
+<div class="space-y-4">
+<!-- Event Card 1 -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container rounded-xl transition-all duration-300 overflow-hidden flex items-center gap-6 p-4">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="vibrant neon lights at a music concert with a large crowd and hazy atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQW6f6Zeu2zEdDnzrs1TzMA-PyuiVSnnsLHz4tAnsUF8pIoRbiT6KFIsKjr8RkxIQmeGKgbMlMhrOwCQMt3D2x5RYkPZvOKsSYGWJbgKRXAFT-V8d6DMwyFfn_LwBZtDxlMKwaiQ5NzNV2OCsvzxfBmTCBN1VfJQAeNT-5qRAMfKikUKVNz16wIwACed1qvZeYwmXXCN3TU9u2XV5RoMAqzMROGWqB1NEF9GNj7u85HAQLLcJ9_jMXu-LpsIA6Qg7vmAz5ZtEuUsI"/>
+</div>
+<div class="flex-1">
+<span class="bg-tertiary/20 text-tertiary text-[10px] px-2 py-0.5 rounded-full uppercase font-bold tracking-tighter">Live Now</span>
+<h4 class="text-xl font-headline font-bold mt-1">Electric Nights: DJ Fusion</h4>
+<div class="flex gap-4 mt-2">
+<div class="flex items-center gap-1 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+<span>482 Registered</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
+<span>Starts in 2h</span>
+</div>
+</div>
+</div>
+<div class="pr-4">
+<button class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+</button>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container rounded-xl transition-all duration-300 overflow-hidden flex items-center gap-6 p-4">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="professional auditorium with blue lighting and a large screen for a tech conference" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArYNqk7EM1r0t8J4bhsUg6QCP0Eqw__xA6PcK0LAz7bcSWc2dWYOiguVOeprbXUSyQxjT12TFZv0x8J28Y3q7x5o7L5uKV6DiplxdIpzm6i4L_FdZUX5daFPD3KXLSmwUPYE1YYewTQl5hQZWCktKiZ3bYVVT4ZTdrRGOsRbqrRpumA5wnTCOTsenjA5FeaIbY7JMY7mSrKjTYPAUfxDWbXWN4A41PwK97um9DImXynOXZ4nyNWW1-ULVqVyQIvLdSzyXicPUYo54"/>
+</div>
+<div class="flex-1">
+<span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded-full uppercase font-bold tracking-tighter">Upcoming</span>
+<h4 class="text-xl font-headline font-bold mt-1">Tech Horizons: AI &amp; You</h4>
+<div class="flex gap-4 mt-2">
+<div class="flex items-center gap-1 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+<span>315 Registered</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+<span>Oct 24, 2024</span>
+</div>
+</div>
+</div>
+<div class="pr-4">
+<button class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+<!-- Event Card 3 -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container rounded-xl transition-all duration-300 overflow-hidden flex items-center gap-6 p-4">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="decorated banquet hall with warm lighting and elegant table settings for a college gala" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI6rthzdDldpA2zhZqD9imRzCzW7CKNdDdxNgaAwydWu8IPwhUlLgSLz6XIoeXVD5tN1UMth8ABzD-kDMlxaZc4TbCBgUkD6QsucmeA_cgL0qsob9EnxgexlZgRhT5aaahcevTf6Ll7T-B5LaNJ5CgUjpfLUoAvEQb1djkQKBpf0HWrAIdx0Tx1opHNImAAOB7R8msohrho-u_Rj7H0CfeQSPIGSpNMf2Nc9v5mbPP98_-XXA-1fKqKLg35kmV5d7nHCkImiBhXt8"/>
+</div>
+<div class="flex-1">
+<span class="bg-outline-variant/20 text-on-surface-variant text-[10px] px-2 py-0.5 rounded-full uppercase font-bold tracking-tighter">Planning</span>
+<h4 class="text-xl font-headline font-bold mt-1">Midnight Masquerade Gala</h4>
+<div class="flex gap-4 mt-2">
+<div class="flex items-center gap-1 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+<span>0 Registered</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="inventory_2">inventory_2</span>
+<span>Draft</span>
+</div>
+</div>
+</div>
+<div class="pr-4">
+<button class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="publish">publish</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Management & Promotion -->
+<div class="space-y-8">
+<!-- Pending Section -->
+<div class="bg-surface-container-low rounded-xl p-6">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-error" data-icon="notification_important">notification_important</span>
+<h3 class="font-headline font-bold text-lg">Pending Approvals</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-[10px] font-bold">JD</div>
+<div>
+<p class="text-sm font-bold">John Doe</p>
+<p class="text-[10px] text-on-surface-variant">Volunteer Request</p>
+</div>
+</div>
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-tertiary material-symbols-outlined text-sm" data-icon="check_circle">check_circle</button>
+<button class="text-error material-symbols-outlined text-sm" data-icon="cancel">cancel</button>
+</div>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-[10px] font-bold">AS</div>
+<div>
+<p class="text-sm font-bold">Alice Smith</p>
+<p class="text-[10px] text-on-surface-variant">Speaker Profile</p>
+</div>
+</div>
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-tertiary material-symbols-outlined text-sm" data-icon="check_circle">check_circle</button>
+<button class="text-error material-symbols-outlined text-sm" data-icon="cancel">cancel</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Promo Materials Upload -->
+<div class="bg-surface-container-low rounded-xl p-6 border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center text-center py-10 hover:border-primary/50 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary mb-4 transition-colors" data-icon="cloud_upload">cloud_upload</span>
+<h4 class="font-bold">Promotional Assets</h4>
+<p class="text-xs text-on-surface-variant mt-1">Upload posters, banners, or video teasers for your active events.</p>
+<button class="mt-4 text-xs font-bold text-primary uppercase tracking-widest border border-primary/30 px-4 py-2 rounded-full hover:bg-primary/10 transition-colors">Select Files</button>
+</div>
+<!-- Quick Insight Chart Mockup -->
+<div class="glass-card rounded-xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-sm">Reg Growth</h3>
+<span class="text-[10px] font-bold bg-surface-bright px-2 py-0.5 rounded text-on-surface-variant">Weekly</span>
+</div>
+<div class="h-24 flex items-end gap-1 px-2">
+<div class="flex-1 bg-primary/20 rounded-t-sm h-[30%]"></div>
+<div class="flex-1 bg-primary/20 rounded-t-sm h-[45%]"></div>
+<div class="flex-1 bg-primary/20 rounded-t-sm h-[25%]"></div>
+<div class="flex-1 bg-primary/40 rounded-t-sm h-[60%]"></div>
+<div class="flex-1 bg-primary/60 rounded-t-sm h-[85%]"></div>
+<div class="flex-1 bg-primary rounded-t-sm h-[100%] shadow-[0_-4px_12px_rgba(186,158,255,0.4)]"></div>
+<div class="flex-1 bg-primary/30 rounded-t-sm h-[40%]"></div>
+</div>
+<p class="text-[10px] text-center mt-4 text-on-surface-variant">Registration spikes correlate with campus emails.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual FAB (Suppressed on Dashboard as requested by logic usually, but here relevant for "Create") -->
+<!-- Applying manual FAB for direct creation utility -->
+<button class="fixed bottom-10 right-10 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary-dim text-on-primary shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex items-center justify-center z-50 hover:scale-110 active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="add" style="font-variation-settings: 'wght' 700;">add</span>
+</button>
+</body></html>

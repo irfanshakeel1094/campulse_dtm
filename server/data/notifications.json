@@ -1,0 +1,28 @@
+{
+  "notifications": [
+    {
+      "id": "29e1f49a-20cb-464b-aaca-fc2bc22b9190",
+      "userId": "1def2f12-ecd2-4b8c-b062-34c6835b85af",
+      "message": "Welcome to Campulse, Kabilan SRM! 🎉 Start exploring events.",
+      "type": "welcome",
+      "read": false,
+      "createdAt": "2026-03-28T08:19:38.082Z"
+    },
+    {
+      "id": "6ec589c6-69bc-4f28-8e39-4cba2ee13da1",
+      "userId": "abf7bfd4-c03d-4bb4-af6e-885fba9a88ce",
+      "message": "Welcome to Campulse, Test Organizer! 🎉 Start exploring events.",
+      "type": "welcome",
+      "read": false,
+      "createdAt": "2026-03-28T08:21:48.189Z"
+    },
+    {
+      "id": "741773fa-5c02-4e68-8013-df83db6e501d",
+      "userId": "bff48fd5-66c1-4186-827c-88072100ce5a",
+      "message": "Welcome to Campulse, studentuser! 🎉 Start exploring events.",
+      "type": "welcome",
+      "read": false,
+      "createdAt": "2026-03-28T08:22:01.808Z"
+    }
+  ]
+}

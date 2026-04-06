@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #060e20;
+    color: #dee5ff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  ::selection {
+    background: rgba(186, 158, 255, 0.3);
+    color: #dee5ff;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  }
+
+  .material-symbols-outlined.filled {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Cards */
+  .glass-panel {
+    background: rgba(25, 37, 64, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(186, 158, 255, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(15, 25, 48, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(186, 158, 255, 0.08);
+  }
+
+  .electric-glow {
+    box-shadow: 0 0 40px rgba(186, 158, 255, 0.15);
+  }
+
+  .text-glow:hover {
+    text-shadow: 0 0 8px rgba(186, 158, 255, 0.6);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary-dim text-on-primary px-6 py-3 rounded-full font-bold
+           hover:shadow-[0_0_20px_rgba(186,158,255,0.3)] transition-all duration-200
+           active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary to-secondary-dim text-on-secondary-container px-6 py-3 rounded-full font-bold
+           hover:shadow-[0_0_20px_rgba(119,153,255,0.3)] transition-all duration-200
+           active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply border border-outline-variant/30 text-on-surface px-6 py-3 rounded-full font-medium
+           hover:bg-surface-bright transition-all duration-200;
+  }
+
+  /* Sidebar styles */
+  .sidebar-link {
+    @apply text-on-surface/60 mx-2 my-1 px-4 py-3 hover:bg-surface-container rounded-lg flex items-center gap-3
+           transition-all duration-200 hover:translate-x-1;
+  }
+
+  .sidebar-link.active {
+    @apply bg-primary text-background rounded-lg mx-2 my-1 px-4 py-3 font-bold flex items-center gap-3
+           scale-[1.02] transition-all duration-200;
+  }
+
+  /* Cards */
+  .card-hover {
+    @apply transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)];
+  }
+
+  /* Input */
+  .input {
+    @apply w-full px-4 py-3 rounded-2xl bg-surface-container border border-outline-variant/30 text-on-surface
+           placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold;
+  }
+
+  .badge-primary {
+    @apply bg-primary/20 text-primary;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary/20 text-secondary;
+  }
+
+  .badge-tertiary {
+    @apply bg-tertiary/20 text-tertiary;
+  }
+
+  /* Category pills */
+  .category-pill {
+    @apply px-4 py-2 rounded-full text-xs font-bold cursor-pointer transition-all duration-200
+           bg-surface-container-high text-on-surface-variant hover:bg-surface-bright;
+  }
+
+  .category-pill.active {
+    @apply bg-primary text-on-primary;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-container-high rounded-full;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-grid {
+    background-image: radial-gradient(circle, rgba(186, 158, 255, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "users": [
+    {
+      "id": "1def2f12-ecd2-4b8c-b062-34c6835b85af",
+      "name": "Kabilan SRM",
+      "email": "kabilan@srm.edu",
+      "passwordHash": "$2b$10$bjjvH6nQXQsThScYf4ki0egVYURGY3hmeqn1YNjgaNADUSz5DgPgu",
+      "role": "student",
+      "college": "SRMIST RAMAPURAM",
+      "interests": [
+        "Hackathon",
+        "Workshop"
+      ],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-03-28T08:19:38.069Z"
+    },
+    {
+      "id": "abf7bfd4-c03d-4bb4-af6e-885fba9a88ce",
+      "name": "Test Organizer",
+      "email": "organizer@vit.edu",
+      "passwordHash": "$2b$10$cZoFp24adyiQfz13komkLuE1HSviLHvK1cTV41TMXY/JPjGYWafeG",
+      "role": "organizer",
+      "college": "VIT Chennai",
+      "interests": [],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-03-28T08:21:48.180Z"
+    },
+    {
+      "id": "bff48fd5-66c1-4186-827c-88072100ce5a",
+      "name": "studentuser",
+      "email": "kabilan.sengathir@gmail.com",
+      "passwordHash": "$2b$10$rnyInwJqD9p8dA26W5ImUOdnrt5cSa9A5NcCl8GSLd9jwNDIFXGr6",
+      "role": "student",
+      "college": "SRMIST RAMAPURAM",
+      "interests": [
+        "Hackathon",
+        "Workshop",
+        "Symposium",
+        "Web Dev",
+        "Cybersecurity"
+      ],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-03-28T08:22:01.792Z"
+    },
+    {
+      "id": "94a93e81-37bb-4689-be09-ea58e0164007",
+      "name": "organizeruser",
+      "email": "kabilans.offl@gmail.com",
+      "passwordHash": "$2b$10$J/5IJAoVRQJRVCB0osHLS.vZ8w7x0DpVgS2SJo7Ekj7/AztojtNoG",
+      "role": "organizer",
+      "college": "SRMIST Ramapuram",
+      "interests": [],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-03-29T09:46:04.185Z"
+    },
+    {
+      "id": "27b1b776-df82-4137-9bfe-c30c35190afe",
+      "name": "organizeruser",
+      "email": "kabilanwork1347@gmail.com",
+      "passwordHash": "$2b$10$H.k3jY3NL.zf67mo9FWd4u5Eom2Y5HMbVbEWZtiLfjUqAcJUNMKkG",
+      "role": "organizer",
+      "college": "SRMIST Ramapuram",
+      "interests": [],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-03-29T14:16:03.753Z"
+    },
+    {
+      "id": "3228f0cd-3fda-4f0b-aedb-f74638447bb5",
+      "name": "irfan",
+      "email": "irfan@gmail.com",
+      "passwordHash": "$2b$10$M1VFy59S8BQsS5qDLII5nOuwPRP0iw.IQwZQD.U7GvcE6zCn5uVN2",
+      "role": "student",
+      "college": "SRMIST RAMAPURAM",
+      "interests": [],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-04-06T14:43:53.872Z"
+    },
+    {
+      "id": "7f270c17-f376-4f55-a22f-38b7ab9cb67d",
+      "name": "stud",
+      "email": "stud@gmail.com",
+      "passwordHash": "$2b$10$9iChDDbo4IIsPJRegVr0ae4wcvKL1Uq6aDR6FC3y7VieMA9tKv/Dq",
+      "role": "student",
+      "college": "SRMIST RAMAPURAM",
+      "interests": [
+        "Hackathon",
+        "Workshop",
+        "Competition"
+      ],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-04-06T14:52:02.580Z"
+    },
+    {
+      "id": "4050c042-c251-4981-a14a-1908e01ce2bc",
+      "name": "Test User",
+      "email": "test@gmail.com",
+      "passwordHash": "$2b$10$Df6Gx6Yw54rQg97PatMC9eVNTg9llCuR9S93BIy.wl93ffpbhXFFq",
+      "role": "student",
+      "college": "SRMIST RAMAPURAM",
+      "interests": [
+        "Hackathon",
+        "AI/ML"
+      ],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-04-06T17:26:47.671Z"
+    },
+    {
+      "id": "bc4924b5-1a45-4bb5-bf61-02757d5153da",
+      "name": "Test2",
+      "email": "test2@gmail.com",
+      "passwordHash": "$2b$10$c4OvEZ5xMoMF4EbbavduoOiBuO1mHBrxH44zrEXjPxVaWzS5TIr8u",
+      "role": "student",
+      "college": "SRMIST RAMAPURAM",
+      "interests": [
+        "Hackathon"
+      ],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-04-06T17:34:14.082Z"
+    },
+    {
+      "id": "8260a7d6-83fe-455a-9a9e-c8385a392e03",
+      "name": "Test3",
+      "email": "test3@gmail.com",
+      "passwordHash": "$2b$10$.UVEiU6WimKGM7Lzk/peguS/rtRL0yXgygWs4CPeGWJJKAFIhuT1O",
+      "role": "student",
+      "college": "SRMIST RAMAPURAM",
+      "interests": [],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-04-06T17:34:28.223Z"
+    },
+    {
+      "id": "7921d366-e349-44f8-ace6-f3b930620b3e",
+      "name": "Test4",
+      "email": "test4@gmail.com",
+      "passwordHash": "$2b$10$SXA7pCBSJ36Cihyg5Qx1rO9mnJQqP8N3yQ4MRLUc9WIurjh8J0bHm",
+      "role": "student",
+      "college": "SRMIST RAMAPURAM",
+      "interests": [],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-04-06T17:34:36.674Z"
+    },
+    {
+      "id": "5bc50546-1bc7-484e-9473-679115c6b0b2",
+      "name": "Test5",
+      "email": "test5@gmail.com",
+      "passwordHash": "$2b$10$RgOcnhi65kxfR6TrCTbxuuO0JR4rvFoHDjmeqyQmMh5TJGD2gqwDS",
+      "role": "student",
+      "college": "SRMIST RAMAPURAM",
+      "interests": [],
+      "registeredEvents": [],
+      "bookmarks": [],
+      "createdAt": "2026-04-06T17:37:53.318Z"
+    }
+  ]
+}
