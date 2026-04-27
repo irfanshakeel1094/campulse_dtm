@@ -81,7 +81,11 @@ export default function EventDiscovery() {
   ];
 
   const getEventImage = (event, idx) => {
-    if (event.posterUrl) return `http://localhost:5000${event.posterUrl}`;
+    if (event.posterUrl) {
+      return event.posterUrl.startsWith('http')
+        ? event.posterUrl
+        : `http://localhost:5000${event.posterUrl}`;
+    }
     const images = isOnCampus(event) ? onCampusImages : offCampusImages;
     return images[idx % images.length];
   };

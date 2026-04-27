@@ -95,7 +95,9 @@ export default function EventDetails() {
           <img
             alt={event.title}
             className="w-full h-full object-cover"
-            src={event.posterUrl ? `http://localhost:5000${event.posterUrl}` : 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=600&fit=crop'}
+            src={event.posterUrl
+              ? (event.posterUrl.startsWith('http') ? event.posterUrl : `http://localhost:5000${event.posterUrl}`)
+              : 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=600&fit=crop'}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
           <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 max-w-7xl mx-auto">

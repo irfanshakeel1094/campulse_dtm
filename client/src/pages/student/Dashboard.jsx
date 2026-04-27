@@ -49,7 +49,11 @@ export default function StudentDashboard() {
   ];
 
   const getImage = (event, idx) => {
-    if (event.posterUrl) return `http://localhost:5000${event.posterUrl}`;
+    if (event.posterUrl) {
+      return event.posterUrl.startsWith('http')
+        ? event.posterUrl
+        : `http://localhost:5000${event.posterUrl}`;
+    }
     const imgs = isOnCampus(event) ? onCampusImages : offCampusImages;
     return imgs[idx % imgs.length];
   };
