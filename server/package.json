@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "db:init": "node db/init.js"
+    "db:init": "node db/init.js",
+    "db:seed:events": "node db/seed-events.js"
   },
   "keywords": [],
   "author": "",
@@ -23,5 +24,8 @@
     "multer": "^2.1.1",
     "mysql2": "^3.20.0",
     "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

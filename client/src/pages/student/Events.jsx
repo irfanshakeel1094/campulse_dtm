@@ -189,7 +189,9 @@ export default function EventDiscovery() {
   };
 
   return (
-    <div className="bg-background min-h-screen text-on-surface">
+    <div className="bg-background min-h-screen text-on-surface relative overflow-x-hidden bg-grid">
+      <div className="pointer-events-none absolute -top-24 right-0 w-[420px] h-[420px] bg-primary/10 blur-[120px] rounded-full" />
+      <div className="pointer-events-none absolute top-1/2 -left-24 w-[320px] h-[320px] bg-secondary/10 blur-[110px] rounded-full" />
       {/* TopNavBar */}
       <header className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-outline-variant/10">
         <div className="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
@@ -227,7 +229,7 @@ export default function EventDiscovery() {
       </header>
 
       {/* Sidebar Navigation */}
-      <aside className="h-screen w-64 fixed left-0 top-0 z-40 bg-surface-container-low flex flex-col py-6 hidden lg:flex" style={{ boxShadow: '20px 0 40px rgba(0,0,0,0.4)' }}>
+      <aside className="h-screen w-64 fixed left-0 top-0 z-40 bg-surface-container-low flex-col py-6 hidden lg:flex" style={{ boxShadow: '20px 0 40px rgba(0,0,0,0.4)' }}>
         <div className="px-6 mb-8 flex items-center gap-3">
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
             <span className="material-symbols-outlined text-background font-bold">bolt</span>

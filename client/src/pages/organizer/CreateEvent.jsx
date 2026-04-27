@@ -96,44 +96,46 @@ export default function CreateEvent({ isEdit = false }) {
 
   if (success) {
     return (
-      <div className="min-h-screen bg-slate-50 dark:bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-background text-on-surface flex items-center justify-center">
         <div className="text-center animate-slide-up">
-          <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle size={40} className="text-emerald-500" />
+          <div className="w-20 h-20 bg-tertiary/15 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle size={40} className="text-tertiary" />
           </div>
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-2">
+          <h2 className="text-2xl font-black text-on-surface mb-2">
             {isEdit ? 'Event Updated!' : 'Event Posted!'}
           </h2>
-          <p className="text-slate-500">Students will be notified about your event.</p>
-          <div className="w-8 h-8 border-2 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mt-4" />
+          <p className="text-on-surface-variant">Students will be notified about your event.</p>
+          <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto mt-4" />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-background transition-colors">
+    <div className="min-h-screen bg-background text-on-surface relative overflow-x-hidden bg-grid">
       <Navbar />
+      <div className="pointer-events-none absolute -top-24 right-0 w-[420px] h-[420px] bg-primary/10 blur-[120px] rounded-full" />
+      <div className="pointer-events-none absolute top-1/2 -left-24 w-[320px] h-[320px] bg-secondary/10 blur-[110px] rounded-full" />
 
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+      <main className="max-w-3xl mx-auto px-4 sm:px-6 py-8 relative z-10">
         <div className="mb-7">
-          <h1 className="text-2xl font-black text-slate-900 dark:text-white mb-1">
+          <h1 className="text-2xl font-black text-on-surface mb-1">
             {isEdit ? 'Edit Event' : 'Post New Event'}
           </h1>
-          <p className="text-slate-500 dark:text-slate-400 text-sm">Fill in the details below. Students will be notified automatically.</p>
+          <p className="text-on-surface-variant text-sm">Fill in the details below. Students will be notified automatically.</p>
         </div>
 
         {/* Info banner */}
-        <div className="flex items-start gap-3 p-4 mb-6 bg-primary-50 dark:bg-primary-900/10 border border-primary-200 dark:border-primary-800/50 rounded-2xl">
-          <Info size={18} className="text-primary-500 mt-0.5 flex-shrink-0" />
-          <p className="text-sm text-primary-700 dark:text-primary-300">
+        <div className="flex items-start gap-3 p-4 mb-6 bg-primary/10 border border-primary/20 rounded-2xl">
+          <Info size={18} className="text-primary mt-0.5 flex-shrink-0" />
+          <p className="text-sm text-primary">
             Provide a Google Form link for registration. Students will be directed to your form when they click "Register Now".
           </p>
         </div>
 
         {/* Error */}
         {error && (
-          <div className="flex items-center gap-2 p-4 mb-5 bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800/50 rounded-2xl text-red-600 dark:text-red-400 text-sm">
+          <div className="flex items-center gap-2 p-4 mb-5 bg-error/10 border border-error/20 rounded-2xl text-error text-sm">
             <AlertCircle size={16} className="flex-shrink-0" />
             {error}
           </div>
@@ -142,10 +144,10 @@ export default function CreateEvent({ isEdit = false }) {
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Poster Upload */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Event Poster <span className="text-slate-400 font-normal">(optional)</span></label>
+            <label className="block text-sm font-semibold text-on-surface-variant mb-2">Event Poster <span className="text-on-surface-variant font-normal">(optional)</span></label>
             <div
               className={`relative border-2 border-dashed rounded-2xl transition-colors cursor-pointer
-                ${posterPreview ? 'border-primary-300 dark:border-primary-700' : 'border-slate-200 dark:border-white/10 hover:border-primary-300 dark:hover:border-primary-700'}`}
+                ${posterPreview ? 'border-primary/40' : 'border-outline-variant/30 hover:border-primary/40'}`}
             >
               {posterPreview ? (
                 <div className="relative">
@@ -153,18 +155,18 @@ export default function CreateEvent({ isEdit = false }) {
                   <button
                     type="button"
                     onClick={() => { setPoster(null); setPosterPreview(null); }}
-                    className="absolute top-3 right-3 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white hover:bg-red-600 transition-colors"
+                    className="absolute top-3 right-3 w-8 h-8 bg-error rounded-full flex items-center justify-center text-white hover:bg-error/90 transition-colors"
                   >
                     <X size={16} />
                   </button>
                 </div>
               ) : (
                 <label className="flex flex-col items-center justify-center py-10 cursor-pointer">
-                  <div className="w-12 h-12 bg-slate-100 dark:bg-surface-container rounded-xl flex items-center justify-center mb-3 text-slate-400">
+                  <div className="w-12 h-12 bg-surface-container rounded-xl flex items-center justify-center mb-3 text-on-surface-variant">
                     <Upload size={22} />
                   </div>
-                  <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Click to upload poster</p>
-                  <p className="text-xs text-slate-400 mt-1">PNG, JPG, GIF up to 5MB</p>
+                  <p className="text-sm font-medium text-on-surface-variant">Click to upload poster</p>
+                  <p className="text-xs text-on-surface-variant mt-1">PNG, JPG, GIF up to 5MB</p>
                   <input type="file" accept="image/*" onChange={handlePoster} className="hidden" />
                 </label>
               )}
@@ -173,8 +175,8 @@ export default function CreateEvent({ isEdit = false }) {
 
           {/* Event Name */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-              Event Name <span className="text-red-500">*</span>
+            <label className="block text-sm font-semibold text-on-surface-variant mb-1.5">
+              Event Name <span className="text-error">*</span>
             </label>
             <input
               type="text"
@@ -189,7 +191,7 @@ export default function CreateEvent({ isEdit = false }) {
 
           {/* Description */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Event Description</label>
+            <label className="block text-sm font-semibold text-on-surface-variant mb-1.5">Event Description</label>
             <textarea
               name="description"
               className="input min-h-[120px] resize-none"
@@ -203,8 +205,8 @@ export default function CreateEvent({ isEdit = false }) {
           {/* Date + Time */}
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                Event Date <span className="text-red-500">*</span>
+              <label className="block text-sm font-semibold text-on-surface-variant mb-1.5">
+                Event Date <span className="text-error">*</span>
               </label>
               <input
                 type="date"
@@ -216,7 +218,7 @@ export default function CreateEvent({ isEdit = false }) {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Event Time</label>
+              <label className="block text-sm font-semibold text-on-surface-variant mb-1.5">Event Time</label>
               <input
                 type="text"
                 name="time"
@@ -230,7 +232,7 @@ export default function CreateEvent({ isEdit = false }) {
 
           {/* Venue */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Venue / Place</label>
+            <label className="block text-sm font-semibold text-on-surface-variant mb-1.5">Venue / Place</label>
             <input
               type="text"
               name="venue"
@@ -244,13 +246,13 @@ export default function CreateEvent({ isEdit = false }) {
           {/* Category + Mode */}
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Category</label>
+              <label className="block text-sm font-semibold text-on-surface-variant mb-1.5">Category</label>
               <select name="category" className="input" value={form.category} onChange={handleChange}>
                 {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
               </select>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Mode</label>
+              <label className="block text-sm font-semibold text-on-surface-variant mb-1.5">Mode</label>
               <select name="mode" className="input" value={form.mode} onChange={handleChange}>
                 {MODES.map(m => <option key={m} value={m}>{m}</option>)}
               </select>
@@ -260,7 +262,7 @@ export default function CreateEvent({ isEdit = false }) {
           {/* Registration Fee + Contact */}
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Registration Fee</label>
+              <label className="block text-sm font-semibold text-on-surface-variant mb-1.5">Registration Fee</label>
               <input
                 type="text"
                 name="registrationFee"
@@ -271,7 +273,7 @@ export default function CreateEvent({ isEdit = false }) {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Contact Number</label>
+              <label className="block text-sm font-semibold text-on-surface-variant mb-1.5">Contact Number</label>
               <input
                 type="tel"
                 name="contactNumber"
@@ -285,8 +287,8 @@ export default function CreateEvent({ isEdit = false }) {
 
           {/* Google Form Link */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-              Google Form Registration Link <span className="text-red-500">*</span>
+            <label className="block text-sm font-semibold text-on-surface-variant mb-1.5">
+              Google Form Registration Link <span className="text-error">*</span>
             </label>
             <input
               type="url"
@@ -297,7 +299,7 @@ export default function CreateEvent({ isEdit = false }) {
               onChange={handleChange}
               required
             />
-            <p className="text-xs text-slate-400 mt-1.5">Students will be redirected here when they click "Register Now"</p>
+            <p className="text-xs text-on-surface-variant mt-1.5">Students will be redirected here when they click "Register Now"</p>
           </div>
 
           {/* Submit */}
@@ -316,7 +318,7 @@ export default function CreateEvent({ isEdit = false }) {
             <button
               type="button"
               onClick={() => navigate('/organizer/events')}
-              className="px-6 py-3.5 rounded-xl border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-surface-container transition-colors font-medium text-sm"
+              className="px-6 py-3.5 rounded-xl border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container transition-colors font-medium text-sm"
             >
               Cancel
             </button>

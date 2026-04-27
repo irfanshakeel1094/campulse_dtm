@@ -30,7 +30,9 @@ export default function Profile() {
   };
 
   return (
-    <div className="bg-background text-on-surface min-h-screen">
+    <div className="bg-background text-on-surface min-h-screen relative overflow-x-hidden bg-grid">
+      <div className="pointer-events-none absolute -top-24 right-0 w-[420px] h-[420px] bg-primary/10 blur-[120px] rounded-full" />
+      <div className="pointer-events-none absolute top-1/2 -left-24 w-[320px] h-[320px] bg-secondary/10 blur-[110px] rounded-full" />
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-outline-variant/10">
         <div className="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
@@ -47,7 +49,7 @@ export default function Profile() {
         </div>
       </header>
 
-      <main className="pt-24 pb-20 px-6 max-w-4xl mx-auto">
+      <main className="pt-24 pb-20 px-6 max-w-4xl mx-auto relative z-10">
         {/* Profile Hero */}
         <section className="relative mb-10">
           <div className="h-40 rounded-2xl bg-gradient-to-r from-primary/30 via-tertiary/20 to-secondary/30 overflow-hidden relative">

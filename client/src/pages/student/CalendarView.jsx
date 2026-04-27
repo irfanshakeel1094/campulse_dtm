@@ -39,24 +39,26 @@ export default function CalendarView() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-background transition-colors">
+    <div className="min-h-screen bg-background text-on-surface relative overflow-x-hidden bg-grid">
       <Navbar />
+      <div className="pointer-events-none absolute -top-24 right-0 w-[420px] h-[420px] bg-primary/10 blur-[120px] rounded-full" />
+      <div className="pointer-events-none absolute top-1/2 -left-24 w-[320px] h-[320px] bg-secondary/10 blur-[110px] rounded-full" />
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 relative z-10">
         <div className="mb-7">
-          <h1 className="text-2xl font-black text-slate-900 dark:text-white mb-1">Event Calendar</h1>
-          <p className="text-slate-500 dark:text-slate-400 text-sm">View past, present, and upcoming events</p>
+          <h1 className="text-2xl font-black text-on-surface mb-1">Event Calendar</h1>
+          <p className="text-on-surface-variant text-sm">View past, present, and upcoming events</p>
         </div>
 
         {/* Legend */}
         <div className="flex flex-wrap gap-4 mb-6">
           {[
-            { color: 'bg-slate-300 dark:bg-slate-600', label: 'Past Events' },
-            { color: 'bg-primary-500', label: 'Today' },
-            { color: 'bg-emerald-500', label: 'Upcoming' },
-            { color: 'bg-accent-500', label: 'SRM Events' },
+            { color: 'bg-outline-variant', label: 'Past Events' },
+            { color: 'bg-primary', label: 'Today' },
+            { color: 'bg-tertiary', label: 'Upcoming' },
+            { color: 'bg-secondary', label: 'SRM Events' },
           ].map(l => (
-            <div key={l.label} className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+            <div key={l.label} className="flex items-center gap-2 text-sm text-on-surface-variant">
               <div className={`w-3 h-3 rounded-full ${l.color}`} />
               {l.label}
             </div>
@@ -65,21 +67,21 @@ export default function CalendarView() {
 
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Calendar */}
-          <div className="lg:col-span-2 card p-6">
+          <div className="lg:col-span-2 bg-surface-container border border-outline-variant/10 rounded-2xl p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
             {/* Month Navigation */}
             <div className="flex items-center justify-between mb-6">
               <button
                 onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
-                className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-100 dark:hover:bg-surface-container-high text-slate-500 dark:text-slate-400 transition-colors"
+                className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-surface-container text-on-surface-variant transition-colors"
               >
                 <ChevronLeft size={20} />
               </button>
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+              <h2 className="text-lg font-bold text-on-surface">
                 {format(currentMonth, 'MMMM yyyy')}
               </h2>
               <button
                 onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}
-                className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-100 dark:hover:bg-surface-container-high text-slate-500 dark:text-slate-400 transition-colors"
+                className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-surface-container text-on-surface-variant transition-colors"
               >
                 <ChevronRight size={20} />
               </button>
@@ -88,7 +90,7 @@ export default function CalendarView() {
             {/* Day Labels */}
             <div className="grid grid-cols-7 mb-2">
               {DAY_LABELS.map(d => (
-                <div key={d} className="text-center text-xs font-semibold text-slate-400 dark:text-slate-500 py-2">
+                <div key={d} className="text-center text-xs font-semibold text-on-surface-variant py-2">
                   {d}
                 </div>
               ))}
@@ -110,16 +112,16 @@ export default function CalendarView() {
                     onClick={() => handleDayClick(day)}
                     className={`relative p-2 rounded-xl min-h-[52px] flex flex-col items-center gap-0.5 transition-all duration-150
                       ${!inMonth ? 'opacity-30' : ''}
-                      ${isSelected ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30' : ''}
-                      ${!isSelected && isToday(day) ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 ring-2 ring-primary-500/50' : ''}
-                      ${!isSelected && !isToday(day) && inMonth ? 'hover:bg-slate-50 dark:hover:bg-surface-container' : ''}
+                      ${isSelected ? 'bg-primary text-background shadow-lg shadow-primary/30' : ''}
+                      ${!isSelected && isToday(day) ? 'bg-primary/10 text-primary ring-2 ring-primary/40' : ''}
+                      ${!isSelected && !isToday(day) && inMonth ? 'hover:bg-surface-container' : ''}
                     `}
                   >
                     <span className={`text-sm font-semibold
-                      ${isSelected ? 'text-white' : ''}
-                      ${!isSelected && isToday(day) ? 'text-primary-600 dark:text-primary-400' : ''}
-                      ${!isSelected && !isToday(day) && type === 'past' ? 'text-slate-400 dark:text-slate-500' : ''}
-                      ${!isSelected && !isToday(day) && type === 'future' ? 'text-slate-700 dark:text-slate-300' : ''}
+                      ${isSelected ? 'text-background' : ''}
+                      ${!isSelected && isToday(day) ? 'text-primary' : ''}
+                      ${!isSelected && !isToday(day) && type === 'past' ? 'text-on-surface-variant' : ''}
+                      ${!isSelected && !isToday(day) && type === 'future' ? 'text-on-surface' : ''}
                     `}>
                       {format(day, 'd')}
                     </span>
@@ -128,10 +130,10 @@ export default function CalendarView() {
                     {dayEvts.length > 0 && (
                       <div className="flex gap-0.5 flex-wrap justify-center">
                         {hasSRM && (
-                          <div className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-white' : 'bg-accent-500'}`} />
+                          <div className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-background' : 'bg-secondary'}`} />
                         )}
                         {hasOther && (
-                          <div className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-white/70' : 'bg-emerald-500'}`} />
+                          <div className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-background/80' : 'bg-tertiary'}`} />
                         )}
                       </div>
                     )}
@@ -142,38 +144,38 @@ export default function CalendarView() {
           </div>
 
           {/* Day Detail Panel */}
-          <div className="card p-5">
+          <div className="bg-surface-container border border-outline-variant/10 rounded-2xl p-5 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary-50 dark:bg-primary-900/30 rounded-lg flex items-center justify-center text-primary-500">
+              <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
                 <Calendar size={16} />
               </div>
               <div>
-                <p className="font-bold text-slate-900 dark:text-white text-sm">
+                <p className="font-bold text-on-surface text-sm">
                   {format(selectedDay, 'EEEE')}
                 </p>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-on-surface-variant">
                   {format(selectedDay, 'MMMM d, yyyy')}
                 </p>
               </div>
             </div>
 
             {dayEvents.length === 0 ? (
-              <div className="text-center py-10 text-slate-400 dark:text-slate-500">
+              <div className="text-center py-10 text-on-surface-variant">
                 <Calendar size={32} className="mx-auto mb-2 opacity-30" />
                 <p className="text-sm">No events on this day</p>
               </div>
             ) : (
               <div className="space-y-3">
                 {dayEvents.map(evt => (
-                  <div key={evt.id} className={`rounded-xl p-3 border-l-4 ${evt.isSRM ? 'border-accent-500 bg-accent-50 dark:bg-accent-900/10' : 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/10'}`}>
-                    <p className="font-semibold text-slate-800 dark:text-white text-sm line-clamp-2">{evt.title}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{evt.college}</p>
-                    {evt.time && <p className="text-xs text-slate-400 mt-0.5">🕐 {evt.time}</p>}
+                  <div key={evt.id} className={`rounded-xl p-3 border-l-4 ${evt.isSRM ? 'border-secondary bg-secondary/10' : 'border-tertiary bg-tertiary/10'}`}>
+                    <p className="font-semibold text-on-surface text-sm line-clamp-2">{evt.title}</p>
+                    <p className="text-xs text-on-surface-variant mt-1">{evt.college}</p>
+                    {evt.time && <p className="text-xs text-on-surface-variant mt-0.5">🕐 {evt.time}</p>}
                     <div className="flex items-center gap-2 mt-2">
-                      <span className={`badge text-[10px] ${evt.isSRM ? 'badge-srm' : 'badge-other'}`}>
+                      <span className={`badge text-[10px] ${evt.isSRM ? 'badge-tertiary' : 'badge-secondary'}`}>
                         {evt.isSRM ? 'SRM' : evt.college.split(' ')[0]}
                       </span>
-                      <span className={`badge text-[10px] ${evt.mode === 'Online' ? 'badge-online' : 'badge-offline'}`}>
+                      <span className={`badge text-[10px] ${evt.mode === 'Online' ? 'badge-secondary' : 'badge-tertiary'}`}>
                         {evt.mode}
                       </span>
                     </div>
@@ -181,7 +183,7 @@ export default function CalendarView() {
                       href={evt.googleFormLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-2 text-xs text-primary-500 hover:text-primary-600 font-medium block"
+                      className="mt-2 text-xs text-primary hover:text-primary-dim font-medium block"
                     >
                       Register →
                     </a>
@@ -191,22 +193,22 @@ export default function CalendarView() {
             )}
 
             {/* Month summary */}
-            <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/10">
-              <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">
+            <div className="mt-6 pt-4 border-t border-outline-variant/10">
+              <p className="text-xs font-semibold text-on-surface-variant mb-2">
                 {format(currentMonth, 'MMMM')} Summary
               </p>
               <div className="grid grid-cols-2 gap-2">
-                <div className="text-center p-2 bg-slate-50 dark:bg-surface-container rounded-lg">
-                  <p className="text-lg font-black text-primary-500">
+                <div className="text-center p-2 bg-surface-container rounded-lg">
+                  <p className="text-lg font-black text-secondary">
                     {events.filter(e => isSameMonth(parseISO(e.date), currentMonth) && e.isSRM).length}
                   </p>
-                  <p className="text-[10px] text-slate-400">SRM Events</p>
+                  <p className="text-[10px] text-on-surface-variant">SRM Events</p>
                 </div>
-                <div className="text-center p-2 bg-slate-50 dark:bg-surface-container rounded-lg">
-                  <p className="text-lg font-black text-emerald-500">
+                <div className="text-center p-2 bg-surface-container rounded-lg">
+                  <p className="text-lg font-black text-tertiary">
                     {events.filter(e => isSameMonth(parseISO(e.date), currentMonth) && !e.isSRM).length}
                   </p>
-                  <p className="text-[10px] text-slate-400">Other Events</p>
+                  <p className="text-[10px] text-on-surface-variant">Other Events</p>
                 </div>
               </div>
             </div>

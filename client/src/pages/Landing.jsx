@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Landing() {
   return (
-    <div className="bg-background text-on-surface min-h-screen selection:bg-primary/30">
+    <div className="bg-background text-on-surface min-h-screen selection:bg-primary/30 bg-grid">
       {/* Atmospheric Background Layers */}
       <div className="fixed inset-0 overflow-hidden -z-10">
         <div className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"></div>

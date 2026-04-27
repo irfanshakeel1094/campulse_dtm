@@ -66,9 +66,9 @@ export default function OrganizerDashboard() {
   ];
 
   return (
-    <div className="bg-background text-on-background antialiased overflow-hidden min-h-screen">
+    <div className="bg-background text-on-background antialiased overflow-x-hidden min-h-screen relative bg-grid">
       {/* SideNavBar */}
-      <aside className="h-screen w-64 fixed left-0 top-0 z-40 bg-surface-container-low flex flex-col py-6 font-headline font-medium hidden md:flex" style={{ boxShadow: '20px 0 40px rgba(0,0,0,0.4)' }}>
+      <aside className="h-screen w-64 fixed left-0 top-0 z-40 bg-surface-container-low flex-col py-6 font-headline font-medium hidden md:flex" style={{ boxShadow: '20px 0 40px rgba(0,0,0,0.4)' }}>
         <div className="px-6 mb-10">
           <div className="text-xl font-black text-primary uppercase tracking-widest">Campulse</div>
           <div className="text-on-surface/60 text-xs mt-1">College Event Hub</div>
@@ -113,9 +113,12 @@ export default function OrganizerDashboard() {
       </aside>
 
       {/* Main Content Canvas */}
-      <main className="md:ml-64 h-screen overflow-y-auto no-scrollbar bg-surface text-on-surface">
+      <main className="md:ml-64 min-h-screen bg-surface text-on-surface relative">
+        <div className="pointer-events-none absolute -top-24 right-0 w-[420px] h-[420px] bg-primary/10 blur-[120px] rounded-full" />
+        <div className="pointer-events-none absolute top-1/2 -left-20 w-[320px] h-[320px] bg-secondary/10 blur-[110px] rounded-full" />
+
         {/* Header Section */}
-        <header className="px-6 md:px-10 pt-12 pb-8 flex justify-between items-end">
+        <header className="sticky top-0 z-20 px-6 md:px-10 pt-12 pb-8 flex justify-between items-end bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
           <div>
             <h1 className="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter text-on-surface mb-2">Organizer Hub</h1>
             <p className="text-on-surface-variant font-body">
@@ -136,7 +139,7 @@ export default function OrganizerDashboard() {
           </div>
         </header>
 
-        <div className="px-6 md:px-10 pb-16 space-y-10">
+        <div className="px-6 md:px-10 pb-16 space-y-10 relative z-10">
           {/* Quick Stats Bento Grid */}
           <section className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="col-span-1 md:col-span-2 glass-card rounded-xl p-8 relative overflow-hidden flex flex-col justify-between">

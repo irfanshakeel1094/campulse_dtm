@@ -55,9 +55,9 @@ export default function StudentDashboard() {
   };
 
   return (
-    <div className="bg-background text-on-surface min-h-screen font-body selection:bg-primary/30">
+    <div className="bg-background text-on-surface min-h-screen font-body selection:bg-primary/30 relative overflow-x-hidden bg-grid">
       {/* SideNavBar */}
-      <aside className="h-screen w-64 fixed left-0 top-0 z-40 bg-surface-container-low flex flex-col py-6 font-headline font-medium hidden md:flex" style={{ boxShadow: '20px 0 40px rgba(0,0,0,0.4)' }}>
+      <aside className="h-screen w-64 fixed left-0 top-0 z-40 bg-surface-container-low flex-col py-6 font-headline font-medium hidden md:flex" style={{ boxShadow: '20px 0 40px rgba(0,0,0,0.4)' }}>
         <div className="px-6 mb-10">
           <h1 className="text-xl font-black text-primary uppercase tracking-widest">Campulse</h1>
           <p className="text-[10px] text-secondary/60 mt-1 uppercase tracking-[0.2em]">College Event Hub</p>
@@ -127,11 +127,12 @@ export default function StudentDashboard() {
       </header>
 
       {/* Main Canvas */}
-      <main className="md:ml-64 pt-24 pb-12 px-6 lg:px-12">
+      <main className="md:ml-64 pt-24 pb-12 px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Personalized Greeting */}
           <section className="mb-12 relative">
             <div className="absolute -top-20 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[100px] -z-10"></div>
+            <div className="absolute -bottom-24 right-0 w-80 h-80 bg-secondary/10 rounded-full blur-[110px] -z-10"></div>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
                 <span className="text-tertiary font-label font-semibold tracking-[0.2em] uppercase text-xs mb-2 block">

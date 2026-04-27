@@ -54,7 +54,9 @@ export default function EventDetails() {
   }
 
   return (
-    <div className="bg-background text-on-background selection:bg-primary/30 min-h-screen">
+    <div className="bg-background text-on-background selection:bg-primary/30 min-h-screen relative overflow-x-hidden bg-grid">
+      <div className="pointer-events-none absolute -top-24 right-0 w-[420px] h-[420px] bg-primary/10 blur-[120px] rounded-full" />
+      <div className="pointer-events-none absolute top-1/2 -left-24 w-[320px] h-[320px] bg-secondary/10 blur-[110px] rounded-full" />
       {/* TopNavBar */}
       <header className="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-xl bg-gradient-to-b from-surface-container-low to-transparent">
         <div className="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
@@ -87,7 +89,7 @@ export default function EventDetails() {
         </div>
       </header>
 
-      <main className="pt-24 pb-20">
+      <main className="pt-24 pb-20 relative z-10">
         {/* Hero Banner */}
         <div className="relative w-full h-[512px] md:h-[614px] overflow-hidden">
           <img

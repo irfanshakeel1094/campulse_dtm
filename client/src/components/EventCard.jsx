@@ -7,20 +7,20 @@ export default function EventCard({ event, compact = false }) {
   const isOver = isPast(eventDate);
 
   const categoryColors = {
-    'Hackathon': 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400',
-    'Workshop': 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
-    'Symposium': 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400',
-    'Coding Contest': 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
-    'Summit': 'bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400',
-    'Competition': 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400',
-    'Seminar': 'bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400',
-    'General': 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400',
+    'Hackathon': 'badge-primary',
+    'Workshop': 'badge-secondary',
+    'Symposium': 'badge-tertiary',
+    'Coding Contest': 'badge-secondary',
+    'Summit': 'badge-tertiary',
+    'Competition': 'badge-primary',
+    'Seminar': 'badge-tertiary',
+    'General': 'bg-surface-container-high text-on-surface-variant',
   };
 
   const catColor = categoryColors[event.category] || categoryColors['General'];
 
   return (
-    <div className={`card group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-500/10 ${isOver ? 'opacity-70' : ''}`}>
+    <div className={`bg-surface-container border border-outline-variant/10 rounded-2xl group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 ${isOver ? 'opacity-70' : ''}`}>
       {/* Poster / Header Gradient */}
       {event.poster ? (
         <div className="h-40 overflow-hidden">
@@ -28,8 +28,8 @@ export default function EventCard({ event, compact = false }) {
         </div>
       ) : (
         <div className={`h-40 relative overflow-hidden ${event.isSRM
-            ? 'bg-gradient-to-br from-primary-600 via-primary-500 to-accent-500'
-            : 'bg-gradient-to-br from-slate-700 via-slate-600 to-slate-500'
+            ? 'bg-gradient-to-br from-primary via-primary-dim to-tertiary'
+            : 'bg-gradient-to-br from-surface-container-high to-surface-container'
           }`}>
           {/* Decorative circles */}
           <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full" />
@@ -50,7 +50,7 @@ export default function EventCard({ event, compact = false }) {
           {/* Status */}
           {event.status === 'ongoing' && (
             <div className="absolute top-3 right-3">
-              <span className="badge bg-green-500/90 text-white text-[10px]">
+              <span className="badge bg-tertiary text-background text-[10px]">
                 <span className="w-1.5 h-1.5 bg-white rounded-full inline-block mr-1 animate-pulse" />
                 Live
               </span>
@@ -71,47 +71,47 @@ export default function EventCard({ event, compact = false }) {
             <Tag size={10} className="mr-1" />
             {event.category}
           </span>
-          <span className={`badge text-[11px] ${event.mode === 'Online' ? 'badge-online' : event.mode === 'Offline' ? 'badge-offline' : 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400'}`}>
+          <span className={`badge text-[11px] ${event.mode === 'Online' ? 'badge-secondary' : event.mode === 'Offline' ? 'badge-tertiary' : 'badge-primary'}`}>
             {event.mode}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-bold text-slate-900 dark:text-white text-base leading-tight mb-1 line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+        <h3 className="font-bold text-on-surface text-base leading-tight mb-1 line-clamp-2 group-hover:text-primary transition-colors">
           {event.title}
         </h3>
 
         {/* College */}
-        <div className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400 mb-3">
+        <div className="flex items-center gap-1 text-xs text-on-surface-variant mb-3">
           <School size={12} />
           <span className="truncate">{event.college}</span>
         </div>
 
         {!compact && (
-          <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-3">
+          <p className="text-sm text-on-surface-variant line-clamp-2 mb-3">
             {event.description}
           </p>
         )}
 
         {/* Info rows */}
         <div className="space-y-1.5 mb-4">
-          <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-            <Clock size={12} className="flex-shrink-0 text-primary-500" />
+          <div className="flex items-center gap-2 text-xs text-on-surface-variant">
+            <Clock size={12} className="flex-shrink-0 text-primary" />
             <span>{format(eventDate, 'EEE, MMM d yyyy')} {event.time && `• ${event.time}`}</span>
           </div>
           {event.venue && (
-            <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-              <MapPin size={12} className="flex-shrink-0 text-primary-500" />
+            <div className="flex items-center gap-2 text-xs text-on-surface-variant">
+              <MapPin size={12} className="flex-shrink-0 text-primary" />
               <span className="truncate">{event.venue}</span>
             </div>
           )}
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-              <DollarSign size={12} className="flex-shrink-0 text-primary-500" />
-              <span className="font-medium text-slate-700 dark:text-slate-300">{event.registrationFee}</span>
+            <div className="flex items-center gap-2 text-xs text-on-surface-variant">
+              <DollarSign size={12} className="flex-shrink-0 text-primary" />
+              <span className="font-medium text-on-surface">{event.registrationFee}</span>
             </div>
             {event.contactNumber && (
-              <div className="flex items-center gap-1 text-xs text-slate-400">
+              <div className="flex items-center gap-1 text-xs text-on-surface-variant">
                 <Phone size={10} />
                 <span>{event.contactNumber}</span>
               </div>
@@ -127,8 +127,8 @@ export default function EventCard({ event, compact = false }) {
           onClick={e => isOver && e.preventDefault()}
           className={`w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all duration-200
             ${isOver
-              ? 'bg-slate-100 dark:bg-surface-container-high text-slate-400 cursor-not-allowed'
-              : 'bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-400 hover:to-primary-500 hover:shadow-lg hover:shadow-primary-500/30 hover:scale-[1.02] active:scale-[0.98]'
+              ? 'bg-surface-container-high text-on-surface-variant cursor-not-allowed'
+              : 'bg-gradient-to-r from-primary to-primary-dim text-on-primary hover:shadow-lg hover:shadow-primary/30 hover:scale-[1.02] active:scale-[0.98]'
             }`}
         >
           <ExternalLink size={14} />

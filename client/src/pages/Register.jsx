@@ -49,7 +49,7 @@ export default function Register() {
   };
 
   return (
-    <div className="bg-background text-on-surface min-h-screen flex items-center justify-center px-4 py-10 relative overflow-hidden">
+    <div className="bg-background text-on-surface min-h-screen flex items-center justify-center px-4 py-10 relative overflow-hidden bg-grid">
       {/* Atmospheric Background Layers */}
       <div className="fixed inset-0 overflow-hidden -z-10">
         <div className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"></div>

@@ -1,6 +1,21 @@
 const mysql = require('mysql2/promise');
 require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') });
 
+const POSTER_URLS = [
+  'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1200&h=800&fit=crop',
+  'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&h=800&fit=crop',
+  'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&h=800&fit=crop',
+  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=800&fit=crop',
+  'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=800&fit=crop',
+  'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1200&h=800&fit=crop'
+];
+
+const withPosterFallback = (events) =>
+  events.map((event, index) => ({
+    ...event,
+    posterUrl: event.posterUrl || POSTER_URLS[index % POSTER_URLS.length]
+  }));
+
 const ON_CAMPUS_EVENTS = [
   {
     id: 'srm-001',
@@ -297,8 +312,11 @@ async function seedEvents() {
   });
 
   try {
+    const onCampusSeed = withPosterFallback(ON_CAMPUS_EVENTS);
+    const offCampusSeed = withPosterFallback(OFF_CAMPUS_EVENTS);
+
     // Clear old seeded events (keep user-created ones)
-    const allSeeded = [...ON_CAMPUS_EVENTS, ...OFF_CAMPUS_EVENTS].map(e => e.id);
+    const allSeeded = [...onCampusSeed, ...offCampusSeed].map(e => e.id);
     if (allSeeded.length > 0) {
       const placeholders = allSeeded.map(() => '?').join(',');
       await conn.query(`DELETE FROM events WHERE id IN (${placeholders})`, allSeeded);
@@ -310,7 +328,7 @@ async function seedEvents() {
     console.log('✓ Cleaned old seeded events');
 
     // Insert on-campus events
-    for (const event of ON_CAMPUS_EVENTS) {
+    for (const event of onCampusSeed) {
       await conn.query(
         `INSERT INTO events (id, title, description, date, time, location, college, organizer, category, posterUrl, registrationUrl, registrations, createdAt)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())`,
@@ -320,7 +338,7 @@ async function seedEvents() {
     console.log(`✓ Inserted ${ON_CAMPUS_EVENTS.length} on-campus (SRM Ramapuram) events`);
 
     // Insert off-campus events
-    for (const event of OFF_CAMPUS_EVENTS) {
+    for (const event of offCampusSeed) {
       await conn.query(
         `INSERT INTO events (id, title, description, date, time, location, college, organizer, category, posterUrl, registrationUrl, registrations, createdAt)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())`,
